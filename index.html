@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark-mode">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#58a6ff">
+    <meta name="description" content="Profesyonel geliştirici portföyü. Modern web teknolojileri ile projeler ve deneyimlerim hakkında bilgi.">
+    <meta name="keywords" content="portfolio, developer, web, javascript, react, python">
+    <meta property="og:title" content="Developer Portfolio">
+    <meta property="og:description" content="Profesyonel geliştirici portföyü">
+    <meta property="og:type" content="website">
+    <title>Portfolio</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2358a6ff;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%238b5cf6;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='url(%23grad)'/%3E%3Ctext x='50' y='70' font-size='60' font-family='Arial' text-anchor='middle' fill='white'%3E◉%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="bg-pattern"></div>
+        <canvas id="codeRain"></canvas>
+        <div class="morphing-shapes">
+            <div class="morph-shape shape-1"></div>
+            <div class="morph-shape shape-2"></div>
+            <div class="morph-shape shape-3"></div>
+        </div>
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">◉</span>
+                <span>portfolio</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="theme-toggle" title="Tema değiştir">
+                <i class="fas fa-moon"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container - GitHub Style -->
+    <div class="main-container">
+        <!-- Sidebar - File Explorer Style -->
+        <aside class="sidebar">
+            <div class="file-explorer">
+                <div class="explorer-header">
+                    <span>EXPLORER</span>
+                </div>
+                <div class="file-tree">
+                    <div class="folder-item active" data-section="home">
+                        <i class="fas fa-folder-open"></i>
+                        <span>home</span>
+                    </div>
+                    <div class="folder-item" data-section="projects">
+                        <i class="fas fa-folder"></i>
+                        <span>projects</span>
+                    </div>
+                    <div class="folder-item" data-section="skills">
+                        <i class="fas fa-folder"></i>
+                        <span>skills</span>
+                    </div>
+                    <div class="folder-item" data-section="contact">
+                        <i class="fas fa-folder"></i>
+                        <span>contact</span>
+                    </div>
+                    <div class="folder-item" data-section="about">
+                        <i class="fas fa-folder"></i>
+                        <span>about</span>
+                    </div>
+                    <div class="folder-item" data-section="testimonials">
+                        <i class="fas fa-folder"></i>
+                        <span>testimonials</span>
+                    </div>
+                    <div class="folder-item" data-section="blog">
+                        <i class="fas fa-folder"></i>
+                        <span>blog</span>
+                    </div>
+                    <div class="folder-item" data-section="stats">
+                        <i class="fas fa-folder"></i>
+                        <span>statistics</span>
+                    </div>
+                    <div class="folder-item" data-section="blog-features">
+                        <i class="fas fa-folder"></i>
+                        <span>blog-features</span>
+                    </div>
+                    <div class="folder-item" data-section="monetization">
+                        <i class="fas fa-folder"></i>
+                        <span>monetization</span>
+                    </div>
+                    <div class="folder-item" data-section="performance">
+                        <i class="fas fa-folder"></i>
+                        <span>performance-data</span>
+                    </div>
+                    <div class="folder-item" data-section="interactive">
+                        <i class="fas fa-folder"></i>
+                        <span>interactive-features</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Content Area -->
+        <main class="content-area">
+            <!-- Home Section -->
+            <section id="home" class="content-section active">
+                <div class="section-header">
+                    <div class="breadcrumb">
+                        <span>portfolio</span>
+                        <span>/</span>
+                        <span>home</span>
+                    </div>
+                </div>
+                <div class="section-content">
+                    <div class="hero-content-wrapper">
+                        <div class="hero-text-section">
+                            <h1 class="main-title">
+                                <span class="typewriter"></span>
+                                <span class="cursor">|</span>
+                            </h1>
+                            <p class="subtitle">Building digital experiences with code</p>
+                            <div class="action-buttons">
+                                <button class="btn-primary" onclick="scrollToSection('projects')">
+                                    <span>View Projects</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                                <button class="btn-secondary" onclick="scrollToSection('contact')">
+                                    <span>Get in Touch</span>
+                                    <i class="fas fa-envelope"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="hero-code-section">
+                            <div class="terminal-container">
+                                <div class="terminal-header">
+                                    <div class="terminal-buttons">
+                                        <span class="btn-close"></span>
+                                        <span class="btn-minimize"></span>
+                                        <span class="btn-maximize"></span>
+                                    </div>
+                                    <span class="terminal-title">terminal@portfolio ~</span>
+                                </div>
+                                <div class="terminal-content">
+                                    <div class="terminal-line">
+                                        <span class="terminal-prompt">$</span>
+                                        <span class="terminal-command"></span>
+                                        <span class="terminal-cursor">|</span>
+                                    </div>
+                                    <div class="terminal-output"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="content-section">
+                <div class="section-header">
+                    <div class="breadcrumb">
+                        <span>portfolio</span>
+                        <span>/</span>
+                        <span>projects</span>
+                    </div>
+                </div>
+                <div class="section-content">
+                    <div class="filter-container">
+                        <button class="filter-btn active" onclick="filterProjects('all')">Tümü</button>
+                        <button class="filter-btn" onclick="filterProjects('react')">React</button>
+                        <button class="filter-btn" onclick="filterProjects('python')">Python</button>
+                        <button class="filter-btn" onclick="filterProjects('node')">Node.js</button>
+                        <button class="filter-btn" onclick="filterProjects('typescript')">TypeScript</button>
+                    </div>
+                    <div class="projects-container">
+                        <div class="project-item animated-card" data-project="1">
+                            <div class="project-glow"></div>
+                            <div class="project-header">
+                                <div class="project-title-group">
+                                    <i class="fas fa-folder"></i>
+                                    <h3>CodeCollab</h3>
+                                </div>
+                            </div>
+                            <div class="project-meta">
+                                <span class="lang-badge">TypeScript</span>
+                                <span class="star-count"><i class="far fa-star"></i> <span class="star-number">342</span></span>
+                            </div>
+                            <p class="project-desc">Gerçek zamanlı kod editörü ve işbirliği platformu</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">MongoDB</span>
+                            </div>
+                            <div class="project-hover-content">
+                                <div class="project-stats">
+                                    <span><i class="fas fa-code-branch"></i> 127 commits</span>
+                                    <span><i class="fas fa-eye"></i> 12.5k views</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-item animated-card" data-project="2">
+                            <div class="project-glow"></div>
+                            <div class="project-header">
+                                <div class="project-title-group">
+                                    <i class="fas fa-folder"></i>
+                                    <h3>MicroFlow Engine</h3>
+                                </div>
+                            </div>
+                            <div class="project-meta">
+                                <span class="lang-badge">Python</span>
+                                <span class="star-count"><i class="far fa-star"></i> <span class="star-number">228</span></span>
+                            </div>
+                            <p class="project-desc">Mikroservis mimarisi için ölçeklenebilir backend motoru</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Docker</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                            </div>
+                            <div class="project-hover-content">
+                                <div class="project-stats">
+                                    <span><i class="fas fa-code-branch"></i> 89 commits</span>
+                                    <span><i class="fas fa-eye"></i> 8.9k views</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-item animated-card" data-project="3">
+                            <div class="project-glow"></div>
+                            <div class="project-header">
+                                <div class="project-title-group">
+                                    <i class="fas fa-folder"></i>
+                                    <h3>DesignSystem Pro</h3>
+                                </div>
+                            </div>
+                            <div class="project-meta">
+                                <span class="lang-badge">Vue</span>
+                                <span class="star-count"><i class="far fa-star"></i> <span class="star-number">156</span></span>
+                            </div>
+                            <p class="project-desc">Mobil öncelikli, erişilebilir tasarım sistemi ve UI kütüphanesi</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Vue.js</span>
+                                <span class="tech-tag">SCSS</span>
+                                <span class="tech-tag">Webpack</span>
+                            </div>
+                            <div class="project-hover-content">
+                                <div class="project-stats">
+                                    <span><i class="fas fa-code-branch"></i> 45 commits</span>
+                                    <span><i class="fas fa-eye"></i> 4.5k views</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-item animated-card" data-project="4">
+                            <div class="project-glow"></div>
+                            <div class="project-header">
+                                <div class="project-title-group">
+                                    <i class="fas fa-folder"></i>
+                                    <h3>TaskFlow Pro</h3>
+                                </div>
+                            </div>
+                            <div class="project-meta">
+                                <span class="lang-badge">TypeScript</span>
+                                <span class="star-count"><i class="far fa-star"></i> <span class="star-number">467</span></span>
+                            </div>
+                            <p class="project-desc">Ekip işbirliği odaklı görev yönetim platformu</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Next.js</span>
+                                <span class="tech-tag">Prisma</span>
+                                <span class="tech-tag">WebSocket</span>
+                            </div>
+                            <div class="project-hover-content">
+                                <div class="project-stats">
+                                    <span><i class="fas fa-code-branch"></i> 124 commits</span>
+                                    <span><i class="fas fa-eye"></i> 21.3k views</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-item animated-card" data-project="5">
+                            <div class="project-glow"></div>
+                            <div class="project-header">
+                                <div class="project-title-group">
+                                    <i class="fas fa-folder"></i>
+                                    <h3>CloudSync Secure</h3>
+                                </div>
+                            </div>
+                            <div class="project-meta">
+                                <span class="lang-badge">Python</span>
+                                <span class="star-count"><i class="far fa-star"></i> <span class="star-number">589</span></span>
+                            </div>
+                            <p class="project-desc">Uçtan uca şifrelemeli dosya senkronizasyon servisi</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">FastAPI</span>
+                                <span class="tech-tag">Redis</span>
+                                <span class="tech-tag">S3</span>
+                            </div>
+                            <div class="project-hover-content">
+                                <div class="project-stats">
+                                    <span><i class="fas fa-code-branch"></i> 231 commits</span>
+                                    <span><i class="fas fa-eye"></i> 35.7k views</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-item animated-card" data-project="6">
+                            <div class="project-glow"></div>
+                            <div class="project-header">
+                                <div class="project-title-group">
+                                    <i class="fas fa-folder"></i>
+                                    <h3>DevTools Suite</h3>
+                                </div>
+                            </div>
+                            <div class="project-meta">
+                                <span class="lang-badge">JavaScript</span>
+                                <span class="star-count"><i class="far fa-star"></i> <span class="star-number">824</span></span>
+                            </div>
+                            <p class="project-desc">Geliştiriciler için kapsamlı araç koleksiyonu</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Electron</span>
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">SQLite</span>
+                            </div>
+                            <div class="project-hover-content">
+                                <div class="project-stats">
+                                    <span><i class="fas fa-code-branch"></i> 218 commits</span>
+                                    <span><i class="fas fa-eye"></i> 18.2k views</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills" class="content-section">
+                <div class="section-header">
+                    <div class="breadcrumb">
+                        <span>portfolio</span>
+                        <span>/</span>
+                        <span>skills</span>
+                    </div>
+                </div>
+                <div class="section-content">
+                    <div class="skills-container">
+                        <div class="skill-category animated-card">
+                            <h3 class="category-title">
+                                <i class="fas fa-code"></i>
+                                Frontend
+                            </h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag" data-skill="react">React</span>
+                                <span class="skill-tag" data-skill="vue">Vue.js</span>
+                                <span class="skill-tag" data-skill="ts">TypeScript</span>
+                                <span class="skill-tag" data-skill="scss">SCSS</span>
+                                <span class="skill-tag" data-skill="webpack">Webpack</span>
+                            </div>
+                            <div class="skill-proficiency" style="margin-top: 1rem;">
+                                <span class="proficiency-level">Uzmanlık</span>
+                                <div class="proficiency-bar">
+                                    <span class="proficiency-dot filled"></span>
+                                    <span class="proficiency-dot filled"></span>
+                                    <span class="proficiency-dot filled"></span>
+                                    <span class="proficiency-dot filled"></span>
+                                    <span class="proficiency-dot filled"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-category animated-card">
+                            <h3 class="category-title">
+                                <i class="fas fa-server"></i>
+                                Backend
+                            </h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag" data-skill="node">Node.js</span>
+                                <span class="skill-tag" data-skill="python">Python</span>
+                                <span class="skill-tag" data-skill="express">Express</span>
+                                <span class="skill-tag" data-skill="django">Django</span>
+                                <span class="skill-tag" data-skill="api">REST APIs</span>
+                            </div>
+                            <div class="skill-proficiency" style="margin-top: 1rem;">
+                                <span class="proficiency-level">Uzmanlık</span>
+                                <div class="proficiency-bar">
+                                    <span class="proficiency-dot filled"></span>
+                                    <span class="proficiency-dot filled"></span>
+                                    <span class="proficiency-dot filled"></span>
+                                    <span class="proficiency-dot filled"></span>
+                                    <span class="proficiency-dot"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-category animated-card">
+                            <h3 class="category-title">
+                                <i class="fas fa-tools"></i>
+                                Tools
+                            </h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag" data-skill="git">Git</span>
+                                <span class="skill-tag" data-skill="docker">Docker</span>
+                                <span class="skill-tag" data-skill="aws">AWS</span>
+                                <span class="skill-tag" data-skill="cicd">CI/CD</span>
+                                <span class="skill-tag" data-skill="linux">Linux</span>
+                            </div>
+                            <div class="skill-proficiency" style="margin-top: 1rem;">
+                                <span class="proficiency-level">Uzmanlık</span>
+                                <div class="proficiency-bar">
+                                    <span class="proficiency-dot filled"></span>
+                                    <span class="proficiency-dot filled"></span>
+                                    <span class="proficiency-dot filled"></span>
+                                    <span class="proficiency-dot filled"></span>
+                                    <span class="proficiency-dot"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="content-section">
+                <div class="section-header">
+                    <div class="breadcrumb">
+                        <span>portfolio</span>
+                        <span>/</span>
+                        <span>contact</span>
+                    </div>
+                </div>
+                <div class="section-content">
+                    <div class="contact-header">
+                        <h2>Benimle İletişime Geç</h2>
+                        <p>Bir proje hakkında konuşmak mı istiyorsun? Sadece merhaba de!</p>
+                    </div>
+                    <div class="contact-wrapper">
+                        <form class="contact-form" id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Adı Soyadı *</label>
+                                <input type="text" id="name" name="name" required placeholder="Adınız">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required placeholder="email@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Konu</label>
+                                <input type="text" id="subject" name="subject" placeholder="Konuyu yazın">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Mesaj *</label>
+                                <textarea id="message" name="message" required rows="5" placeholder="Mesajınızı yazın..."></textarea>
+                            </div>
+                            <button type="submit" class="btn-primary">
+                                <i class="fas fa-paper-plane"></i>
+                                <span>Gönder</span>
+                            </button>
+                        </form>
+                        <div class="contact-cards">
+                            <div class="contact-card">
+                                <i class="fas fa-envelope"></i>
+                                <h3>Email</h3>
+                                <p>Get in touch via email</p>
+                                <a href="mailto:hello@example.com" class="contact-link">hello@example.com</a>
+                            </div>
+                            <div class="contact-card">
+                                <i class="fab fa-github"></i>
+                                <h3>GitHub</h3>
+                                <p>View my repositories</p>
+                                <a href="https://github.com" target="_blank" class="contact-link">github.com/username</a>
+                            </div>
+                            <div class="contact-card">
+                                <i class="fab fa-linkedin"></i>
+                                <h3>LinkedIn</h3>
+                                <p>Connect professionally</p>
+                                <a href="https://linkedin.com" target="_blank" class="contact-link">linkedin.com/in/username</a>
+                            </div>
+                            <div class="contact-card">
+                                <i class="fab fa-twitter"></i>
+                                <h3>Twitter</h3>
+                                <p>Follow for updates</p>
+                                <a href="https://twitter.com" target="_blank" class="contact-link">@username</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section id="about" class="content-section">
+                <div class="section-header">
+                    <div class="breadcrumb">
+                        <span>portfolio</span>
+                        <span>/</span>
+                        <span>about</span>
+                    </div>
+                </div>
+                <div class="section-content">
+                    <div class="about-container">
+                        <div class="about-text">
+                            <h2>Hakkımda</h2>
+                            <p>Merhaba! Ben, modern web teknolojileri ile ilgi duyuyor ve yüksek kaliteli dijital deneyimler oluşturmaya tutkulu bir yazılım geliştiriciyi. Kodlamayı bitirdikten sonra, müzik dinlemek ve açık hava aktiviteleri yapmaktan hoşlanırım.</p>
+                            <p>Karmaşık sorunları çözmek, ekip ortamında çalışmak ve sürekli öğrenmek beni motive ediyor. Her proje, yeni yetenekler kazanmak ve en iyi uygulamaları uygulamak için bir fırsat.</p>
+                            <div class="about-stats">
+                                <div class="stat">
+                                    <h3 class="stat-value">50+</h3>
+                                    <p class="stat-label">Proje Tamamlandı</p>
+                                </div>
+                                <div class="stat">
+                                    <h3 class="stat-value">8+</h3>
+                                    <p class="stat-label">Yıl Deneyim</p>
+                                </div>
+                                <div class="stat">
+                                    <h3 class="stat-value">30+</h3>
+                                    <p class="stat-label">Memnun Müşteri</p>
+                                </div>
+                                <div class="stat">
+                                    <h3 class="stat-value">15+</h3>
+                                    <p class="stat-label">Teknoloji</p>
+                                </div>
+                            </div>
+                            <div class="about-buttons">
+                                <button class="btn-primary" onclick="downloadResume()">
+                                    <i class="fas fa-download"></i>
+                                    <span>CV İndir</span>
+                                </button>
+                                <a href="https://linkedin.com/in/username" target="_blank" class="btn-secondary">
+                                    <i class="fab fa-linkedin"></i>
+                                    <span>LinkedIn</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="about-media">
+                            <div class="about-image-wrapper">
+                                <div class="about-image">
+                                    <i class="fas fa-user-circle"></i>
+                                </div>
+                                <div class="about-badge">Available for work</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials Section -->
+            <section id="testimonials" class="content-section">
+                <div class="section-header">
+                    <div class="breadcrumb">
+                        <span>portfolio</span>
+                        <span>/</span>
+                        <span>testimonials</span>
+                    </div>
+                </div>
+                <div class="section-content">
+                    <div class="testimonials-container">
+                        <h2>Müşteri Yorumları</h2>
+                        <div class="testimonials-grid">
+                            <div class="testimonial-card">
+                                <div class="testimonial-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="testimonial-text">"Harika bir projeydi! Ekibi çok profesyonel ve zamanında teslimat yaptı. Teknik bilgisi ve iletişim becerisi olağanüstüydü."</p>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">
+                                        <i class="fas fa-user-circle"></i>
+                                    </div>
+                                    <div>
+                                        <h4>Ahmet Yılmaz</h4>
+                                        <p>CEO, Tech Startup</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-card">
+                                <div class="testimonial-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="testimonial-text">"İşleri nasıl yapması gerektiğini tam olarak anladı. Projeyi beklediğimizden daha kısa sürede tamamladı ve sonuç mükemmeldi."</p>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">
+                                        <i class="fas fa-user-circle"></i>
+                                    </div>
+                                    <div>
+                                        <h4>Ayşe Kaya</h4>
+                                        <p>Product Manager</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-card">
+                                <div class="testimonial-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="testimonial-text">"Kodun kalitesi ve mimarisi mükemmeldi. Bakım ve genişletme yapması çok kolay oldu. Mutlaka tekrar çalışacağım."</p>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">
+                                        <i class="fas fa-user-circle"></i>
+                                    </div>
+                                    <div>
+                                        <h4>Mehmet Demir</h4>
+                                        <p>CTO, Enterprise Corp</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Blog Section -->
+            <section id="blog" class="content-section">
+                <div class="section-header">
+                    <div class="breadcrumb">
+                        <span>portfolio</span>
+                        <span>/</span>
+                        <span>blog</span>
+                    </div>
+                </div>
+                <div class="section-content">
+                    <div class="blog-container">
+                        <div class="blog-intro">
+                            <h2>Yazılarım</h2>
+                            <p>Teknoloji, yazılım geliştirme ve web üzerine yazdığım makalelerimi keşfet</p>
+                        </div>
+                        <div class="blog-platforms">
+                            <a href="https://medium.com/@username" target="_blank" class="blog-card">
+                                <div class="blog-icon">
+                                    <i class="fab fa-medium"></i>
+                                </div>
+                                <h3>Medium</h3>
+                                <p>Derinlemesine teknik makaleler</p>
+                                <div class="blog-badge">30+ Yazı</div>
+                            </a>
+                            <a href="https://dev.to/username" target="_blank" class="blog-card">
+                                <div class="blog-icon">
+                                    <i class="fab fa-dev"></i>
+                                </div>
+                                <h3>Dev.to</h3>
+                                <p>Geliştirici topluluğuyla paylaşımlar</p>
+                                <div class="blog-badge">15+ Yazı</div>
+                            </a>
+                            <a href="https://hashnode.com/@username" target="_blank" class="blog-card">
+                                <div class="blog-icon">
+                                    <i class="fas fa-cube"></i>
+                                </div>
+                                <h3>Hashnode</h3>
+                                <p>Blok zincir ve Web3 üzerine</p>
+                                <div class="blog-badge">10+ Yazı</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Statistics Dashboard -->
+            <section id="stats" class="content-section">
+                <div class="section-header">
+                    <div class="breadcrumb">
+                        <span>portfolio</span>
+                        <span>/</span>
+                        <span>statistics</span>
+                    </div>
+                </div>
+                <div class="section-content">
+                    <div class="stats-container">
+                        <div class="stats-grid">
+                            <div class="stats-card">
+                                <div class="stats-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <h3>Kod Satırları</h3>
+                                <p class="stats-number">50,000+</p>
+                                <p class="stats-desc">Yazılmış ve maintain edilen</p>
+                            </div>
+                            <div class="stats-card">
+                                <div class="stats-icon">
+                                    <i class="fas fa-project-diagram"></i>
+                                </div>
+                                <h3>Proje Türü</h3>
+                                <p class="stats-number">12</p>
+                                <p class="stats-desc">Farklı kategori</p>
+                            </div>
+                            <div class="stats-card">
+                                <div class="stats-icon">
+                                    <i class="fas fa-language"></i>
+                                </div>
+                                <h3>Programlama Dili</h3>
+                                <p class="stats-number">6</p>
+                                <p class="stats-desc">JavaScript, Python, TypeScript vb</p>
+                            </div>
+                            <div class="stats-card">
+                                <div class="stats-icon">
+                                    <i class="fas fa-database"></i>
+                                </div>
+                                <h3>Veritabanı</h3>
+                                <p class="stats-number">5</p>
+                                <p class="stats-desc">SQL ve NoSQL sistemleri</p>
+                            </div>
+                        </div>
+                        <div class="language-breakdown">
+                            <h3>Dil Dağılımı</h3>
+                            <div class="language-chart">
+                                <div class="language-bar">
+                                    <div class="language-label">JavaScript</div>
+                                    <div class="language-bar-bg">
+                                        <div class="language-bar-fill" style="width: 35%"></div>
+                                    </div>
+                                    <div class="language-percent">35%</div>
+                                </div>
+                                <div class="language-bar">
+                                    <div class="language-label">Python</div>
+                                    <div class="language-bar-bg">
+                                        <div class="language-bar-fill" style="width: 28%"></div>
+                                    </div>
+                                    <div class="language-percent">28%</div>
+                                </div>
+                                <div class="language-bar">
+                                    <div class="language-label">TypeScript</div>
+                                    <div class="language-bar-bg">
+                                        <div class="language-bar-fill" style="width: 22%"></div>
+                                    </div>
+                                    <div class="language-percent">22%</div>
+                                </div>
+                                <div class="language-bar">
+                                    <div class="language-label">Other</div>
+                                    <div class="language-bar-bg">
+                                        <div class="language-bar-fill" style="width: 15%"></div>
+                                    </div>
+                                    <div class="language-percent">15%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Blog Features Section -->
+            <section id="blog-features" class="content-section" data-section="blog-features">
+                <div class="section-breadcrumb">
+                    <a href="#home">home</a> / <span>blog-features</span>
+                </div>
+                <div class="content-wrapper">
+                    <div class="section-header">
+                        <h1>📚 Blog Yönetim Sistemi</h1>
+                        <p>Yazıdığım makaleler, etiketler ve sınıflandırma</p>
+                    </div>
+
+                    <div class="blog-features-container">
+                        <div class="blog-feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <h3>Blog Takvimi</h3>
+                            <p>Yazı yayınlama tarihleri ve planlaycı</p>
+                            <div class="feature-stat">12 yazı bu ay</div>
+                        </div>
+
+                        <div class="blog-feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-tags"></i>
+                            </div>
+                            <h3>Etiketler & Kategoriler</h3>
+                            <p>Konuya göre organize edilmiş içerik</p>
+                            <div class="feature-tags">
+                                <span class="tag">React</span>
+                                <span class="tag">Python</span>
+                                <span class="tag">Web Dev</span>
+                                <span class="tag">AI/ML</span>
+                            </div>
+                        </div>
+
+                        <div class="blog-feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <h3>Yorum Sistemi</h3>
+                            <p>GitHub Issues ile yorum altyapısı</p>
+                            <div class="feature-stat">156 yorum</div>
+                        </div>
+
+                        <div class="blog-feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-share-alt"></i>
+                            </div>
+                            <h3>Sosyal Paylaşım</h3>
+                            <p>Bir klik ile sosyal ağlarda paylaş</p>
+                            <div class="feature-buttons">
+                                <button class="social-btn" title="Twitter'da paylaş"><i class="fab fa-twitter"></i></button>
+                                <button class="social-btn" title="LinkedIn'de paylaş"><i class="fab fa-linkedin"></i></button>
+                                <button class="social-btn" title="Facebook'da paylaş"><i class="fab fa-facebook"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="blog-feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <h3>PDF Export</h3>
+                            <p>Yazıları PDF olarak indir</p>
+                            <button class="export-btn">PDF İndir</button>
+                        </div>
+
+                        <div class="blog-feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h3>Okuma Süresi</h3>
+                            <p>Her yazı için tahmini okuma süresi</p>
+                            <div class="feature-stat">Ort. 5 dakika</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Monetization Section -->
+            <section id="monetization" class="content-section" data-section="monetization">
+                <div class="section-breadcrumb">
+                    <a href="#home">home</a> / <span>monetization</span>
+                </div>
+                <div class="content-wrapper">
+                    <div class="section-header">
+                        <h1>💰 Paralandırma & Destek</h1>
+                        <p>Projelerim ve çalışmalarına destek ol</p>
+                    </div>
+
+                    <div class="monetization-container">
+                        <div class="monetization-grid">
+                            <div class="monetization-card">
+                                <div class="card-icon">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <h3>☕ Bana Kahve Ismarla</h3>
+                                <p>Çalışmalarımı destekle</p>
+                                <div class="support-prices">
+                                    <button class="price-btn" data-amount="5">5₺</button>
+                                    <button class="price-btn" data-amount="10">10₺</button>
+                                    <button class="price-btn" data-amount="25">25₺</button>
+                                </div>
+                                <a href="#" class="monetization-link" title="Buy Me a Coffee">Buy Me a Coffee</a>
+                            </div>
+
+                            <div class="monetization-card">
+                                <div class="card-icon">
+                                    <i class="fas fa-github"></i>
+                                </div>
+                                <h3>💎 GitHub Sponsor</h3>
+                                <p>Aylık destek planları</p>
+                                <div class="sponsor-tiers">
+                                    <div class="tier">🥉 Temel</div>
+                                    <div class="tier">🥈 Pro</div>
+                                    <div class="tier">🥇 Premium</div>
+                                </div>
+                                <a href="#" class="monetization-link">Sponsor Ol</a>
+                            </div>
+
+                            <div class="monetization-card">
+                                <div class="card-icon">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <h3>📖 Kurslar</h3>
+                                <p>Udemy ve Coursera kurslarım</p>
+                                <div class="course-stats">
+                                    <div class="stat">12 kurs</div>
+                                    <div class="stat">5000+ öğrenci</div>
+                                </div>
+                                <a href="#" class="monetization-link">Kursları Gör</a>
+                            </div>
+
+                            <div class="monetization-card">
+                                <div class="card-icon">
+                                    <i class="fas fa-shirt"></i>
+                                </div>
+                                <h3>🎁 Ürünler</h3>
+                                <p>Merchandise ve ürünler</p>
+                                <div class="merchandise-preview">
+                                    Tişört, şapka, fincan vb.
+                                </div>
+                                <a href="#" class="monetization-link">Magaza</a>
+                            </div>
+
+                            <div class="monetization-card">
+                                <div class="card-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <h3>📧 Newsletter</h3>
+                                <p>Haftalık yazı ve ipuçları</p>
+                                <div class="newsletter-form">
+                                    <input type="email" placeholder="Email adresin..." class="newsletter-input">
+                                    <button class="newsletter-btn">Abone Ol</button>
+                                </div>
+                            </div>
+
+                            <div class="monetization-card">
+                                <div class="card-icon">
+                                    <i class="fas fa-briefcase"></i>
+                                </div>
+                                <h3>💼 Hizmetler</h3>
+                                <p>Freelance & danışmanlık</p>
+                                <div class="services-list">
+                                    <p>✓ Web Geliştirme</p>
+                                    <p>✓ Teknik Danışmanlık</p>
+                                </div>
+                                <a href="#" class="monetization-link">İletişim</a>
+                            </div>
+                        </div>
+
+                        <div class="monetization-stats">
+                            <h3>Destek İstatistikleri</h3>
+                            <div class="stats-grid">
+                                <div class="stat-box">
+                                    <div class="stat-value">2,456</div>
+                                    <div class="stat-label">Destekçi</div>
+                                </div>
+                                <div class="stat-box">
+                                    <div class="stat-value">₺12,540</div>
+                                    <div class="stat-label">Toplam Destek</div>
+                                </div>
+                                <div class="stat-box">
+                                    <div class="stat-value">156</div>
+                                    <div class="stat-label">Aktif Abone</div>
+                                </div>
+                                <div class="stat-box">
+                                    <div class="stat-value">98%</div>
+                                    <div class="stat-label">Memnuniyet</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Performance & Data Section -->
+            <section id="performance" class="content-section" data-section="performance">
+                <div class="section-breadcrumb">
+                    <a href="#home">home</a> / <span>performance-data</span>
+                </div>
+                <div class="content-wrapper">
+                    <div class="section-header">
+                        <h1>📊 Performans & Veri Analitikleri</h1>
+                        <p>Web Vitals, kullanıcı davranışı ve erişilebilirlik metrikleri</p>
+                    </div>
+
+                    <div class="performance-container">
+                        <div class="performance-metrics">
+                            <div class="metric-card">
+                                <div class="metric-title">
+                                    <i class="fas fa-tachometer-alt"></i>
+                                    Performans Skoru
+                                </div>
+                                <div class="metric-value">94/100</div>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" style="width: 94%"></div>
+                                </div>
+                            </div>
+
+                            <div class="metric-card">
+                                <div class="metric-title">
+                                    <i class="fas fa-bolt"></i>
+                                    LCP (Largest Contentful Paint)
+                                </div>
+                                <div class="metric-value">1.2s</div>
+                                <div class="metric-status good">✓ İyi</div>
+                            </div>
+
+                            <div class="metric-card">
+                                <div class="metric-title">
+                                    <i class="fas fa-layer-group"></i>
+                                    FID (First Input Delay)
+                                </div>
+                                <div class="metric-value">45ms</div>
+                                <div class="metric-status good">✓ İyi</div>
+                            </div>
+
+                            <div class="metric-card">
+                                <div class="metric-title">
+                                    <i class="fas fa-window-restore"></i>
+                                    CLS (Cumulative Layout Shift)
+                                </div>
+                                <div class="metric-value">0.08</div>
+                                <div class="metric-status good">✓ İyi</div>
+                            </div>
+                        </div>
+
+                        <div class="analytics-section">
+                            <h3>Ziyaretçi Analitikleri</h3>
+                            <div class="analytics-grid">
+                                <div class="analytics-card">
+                                    <div class="analytics-icon">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <div class="analytics-data">
+                                        <div class="analytics-value">15,234</div>
+                                        <div class="analytics-label">Toplam Ziyaretçi</div>
+                                        <div class="analytics-trend">📈 +23% bu ayda</div>
+                                    </div>
+                                </div>
+
+                                <div class="analytics-card">
+                                    <div class="analytics-icon">
+                                        <i class="fas fa-mouse-pointer"></i>
+                                    </div>
+                                    <div class="analytics-data">
+                                        <div class="analytics-value">42,156</div>
+                                        <div class="analytics-label">Sayfa İzlenmeleri</div>
+                                        <div class="analytics-trend">📈 +18% bu ayda</div>
+                                    </div>
+                                </div>
+
+                                <div class="analytics-card">
+                                    <div class="analytics-icon">
+                                        <i class="fas fa-hourglass-end"></i>
+                                    </div>
+                                    <div class="analytics-data">
+                                        <div class="analytics-value">3m 42s</div>
+                                        <div class="analytics-label">Ort. Zaman</div>
+                                        <div class="analytics-trend">✓ İyi katılım</div>
+                                    </div>
+                                </div>
+
+                                <div class="analytics-card">
+                                    <div class="analytics-icon">
+                                        <i class="fas fa-sign-in-alt"></i>
+                                    </div>
+                                    <div class="analytics-data">
+                                        <div class="analytics-value">2.8%</div>
+                                        <div class="analytics-label">Hemen Çıkma Oranı</div>
+                                        <div class="analytics-trend">📈 Düşük çıkış iyi</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accessibility-section">
+                            <h3>Erişilebilirlik Skoru</h3>
+                            <div class="accessibility-metrics">
+                                <div class="a11y-metric">
+                                    <div class="a11y-label">WCAG 2.1</div>
+                                    <div class="a11y-score">AAA</div>
+                                    <p>En yüksek uyumluluk</p>
+                                </div>
+                                <div class="a11y-metric">
+                                    <div class="a11y-label">Kontrast Oranı</div>
+                                    <div class="a11y-score">7:1</div>
+                                    <p>Mükemmel okunabilirlik</p>
+                                </div>
+                                <div class="a11y-metric">
+                                    <div class="a11y-label">Klavye Navigasyonu</div>
+                                    <div class="a11y-score">✓ 100%</div>
+                                    <p>Tam destekleme</p>
+                                </div>
+                                <div class="a11y-metric">
+                                    <div class="a11y-label">Screen Reader</div>
+                                    <div class="a11y-score">✓ 100%</div>
+                                    <p>ARIA uyumlu</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interactive Features Section -->
+            <section id="interactive" class="content-section" data-section="interactive">
+                <div class="section-breadcrumb">
+                    <a href="#home">home</a> / <span>interactive-features</span>
+                </div>
+                <div class="content-wrapper">
+                    <div class="section-header">
+                        <h1>🎮 İnteraktif Özellikler</h1>
+                        <p>Proje modalları, arama ve daha fazla interaktif öğeler</p>
+                    </div>
+
+                    <div class="interactive-container">
+                        <div class="interactive-grid">
+                            <div class="interactive-item">
+                                <div class="feature-demo">
+                                    <div class="demo-icon">
+                                        <i class="fas fa-search"></i>
+                                    </div>
+                                </div>
+                                <h3>🔍 Gelişmiş Arama</h3>
+                                <p>Tüm projeler ve yazıları anında ara</p>
+                                <button class="demo-btn" id="searchDemo">Demosunu Gör</button>
+                            </div>
+
+                            <div class="interactive-item">
+                                <div class="feature-demo">
+                                    <div class="demo-icon">
+                                        <i class="fas fa-images"></i>
+                                    </div>
+                                </div>
+                                <h3>🖼️ Lightbox Galerisi</h3>
+                                <p>Proje ekran görüntüleri ve görseller</p>
+                                <button class="demo-btn" id="lightboxDemo">Demosunu Gör</button>
+                            </div>
+
+                            <div class="interactive-item">
+                                <div class="feature-demo">
+                                    <div class="demo-icon">
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                                <h3>⭐ Favoriler</h3>
+                                <p>Projeleri favori olarak işaretle</p>
+                                <button class="demo-btn" id="favoritesDemo">Demosunu Gör</button>
+                            </div>
+
+                            <div class="interactive-item">
+                                <div class="feature-demo">
+                                    <div class="demo-icon">
+                                        <i class="fas fa-share-nodes"></i>
+                                    </div>
+                                </div>
+                                <h3>🔗 Hızlı Paylaş</h3>
+                                <p>Projeleri sosyal ağlarda paylaş</p>
+                                <button class="demo-btn" id="shareDemo">Demosunu Gör</button>
+                            </div>
+
+                            <div class="interactive-item">
+                                <div class="feature-demo">
+                                    <div class="demo-icon">
+                                        <i class="fas fa-code"></i>
+                                    </div>
+                                </div>
+                                <h3>📋 Kopyala Kodunu</h3>
+                                <p>Kod snippetleri bir klikle kopyala</p>
+                                <button class="demo-btn" id="codeDemo">Demosunu Gör</button>
+                            </div>
+
+                            <div class="interactive-item">
+                                <div class="feature-demo">
+                                    <div class="demo-icon">
+                                        <i class="fas fa-bookmark"></i>
+                                    </div>
+                                </div>
+                                <h3>🔖 Yer İşareti</h3>
+                                <p>Önemli projeleri kaydet ve hızlı eriş</p>
+                                <button class="demo-btn" id="bookmarkDemo">Demosunu Gör</button>
+                            </div>
+                        </div>
+
+                        <div class="interactive-tools">
+                            <h3>🛠️ Etkileşimli Araçlar</h3>
+                            <div class="tools-grid">
+                                <div class="tool-card">
+                                    <h4>Proje Filtresi</h4>
+                                    <div class="filter-demo">
+                                        <input type="text" placeholder="Proje ara..." class="filter-input">
+                                        <button class="filter-btn"><i class="fas fa-search"></i></button>
+                                    </div>
+                                    <p>Türe, dile, tarihe göre filtrele</p>
+                                </div>
+
+                                <div class="tool-card">
+                                    <h4>Sıralama Seçeneği</h4>
+                                    <select class="sort-select">
+                                        <option>Yeniye doğru sırala</option>
+                                        <option>Eskiye doğru sırala</option>
+                                        <option>En yüksek star</option>
+                                        <option>Alfabetik</option>
+                                    </select>
+                                    <p>Projeleri istediğin şekilde sırala</p>
+                                </div>
+
+                                <div class="tool-card">
+                                    <h4>Görünüm Modu</h4>
+                                    <div class="view-options">
+                                        <button class="view-btn active" title="Grid görünüm"><i class="fas fa-th"></i></button>
+                                        <button class="view-btn" title="Liste görünüm"><i class="fas fa-list"></i></button>
+                                        <button class="view-btn" title="Kompakt görünüm"><i class="fas fa-th-list"></i></button>
+                                    </div>
+                                    <p>Uygun görünüm modunu seç</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="interactive-stats">
+                            <h3>İnteraktivite İstatistikleri</h3>
+                            <div class="interactive-stat-grid">
+                                <div class="stat-card">
+                                    <div class="stat-icon"><i class="fas fa-mouse"></i></div>
+                                    <div class="stat-info">
+                                        <div class="stat-num">5,234</div>
+                                        <div class="stat-text">Proje Tıklaması</div>
+                                    </div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-icon"><i class="fas fa-star"></i></div>
+                                    <div class="stat-info">
+                                        <div class="stat-num">1,256</div>
+                                        <div class="stat-text">Favoriler</div>
+                                    </div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-icon"><i class="fas fa-share"></i></div>
+                                    <div class="stat-info">
+                                        <div class="stat-num">3,421</div>
+                                        <div class="stat-text">Paylaşım</div>
+                                    </div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-icon"><i class="fas fa-bookmark"></i></div>
+                                    <div class="stat-info">
+                                        <div class="stat-num">892</div>
+                                        <div class="stat-text">Yer İşaretleri</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Skill Info Modal -->
+    <div id="skillModal" class="skill-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalSkillName"></h2>
+            </div>
+            <div class="modal-body">
+                <p class="modal-description" id="modalDescription"></p>
+                <div class="modal-footer">
+                    <a href="#" id="modalWikiLink" target="_blank" class="wiki-link">
+                        <i class="fab fa-wikipedia-w"></i>
+                        <span>Daha fazla bilgi için Wikipedia</span>
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Info Modal -->
+    <div id="projectModal" class="skill-modal project-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalProjectName"></h2>
+            </div>
+            <div class="modal-body">
+                <p class="modal-description" id="modalProjectDesc"></p>
+                <div class="project-modal-tech">
+                    <h4>Kullanılan Teknolojiler:</h4>
+                    <div id="modalProjectTech" class="modal-tech-tags"></div>
+                </div>
+                <div class="project-modal-stats">
+                    <div class="stat-item">
+                        <i class="far fa-star"></i>
+                        <span id="modalProjectStars">0</span>
+                        <span>Stars</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-code-branch"></i>
+                        <span id="modalProjectCommits">0</span>
+                        <span>Commits</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-eye"></i>
+                        <span id="modalProjectViews">0</span>
+                        <span>Views</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" id="modalProjectWikiLink" target="_blank" class="wiki-link">
+                        <i class="fab fa-wikipedia-w"></i>
+                        <span>Daha fazla bilgi için Wikipedia</span>
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
