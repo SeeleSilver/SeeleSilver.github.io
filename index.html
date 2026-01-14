@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Freela — Freelancer Platform</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#">Freela</a>
+      <nav class="nav" id="main-nav">
+        <ul>
+          <li><a href="#services">Hizmetler</a></li>
+          <li><a href="#freelancers">Freelancer'lar</a></li>
+          <li><a href="#projects">Projeler</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="btn" id="btn-login">Giriş</button>
+        <button class="btn" id="btn-register">Kayıt</button>
+        <button class="btn primary" id="btn-create-project">Proje Paylaş</button>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Freelancerlarla hızlı ve güvenli çalışın</h1>
+        <p>Projelerinizi yayınlayın, teklif alın ve en uygun freelancer'ı bulun.</p>
+        <div class="hero-cta">
+          <a class="btn primary" href="#projects">Projelere Gözat</a>
+          <a class="btn" href="#freelancers">Freelancer Ara</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="services container">
+      <h2>Popüler Kategoriler</h2>
+      <div class="grid cards">
+        <article class="card">
+          <h3>Tasarım</h3>
+          <p>Logo, UI/UX, grafik tasarım işleri için uzmanlar.</p>
+        </article>
+        <article class="card">
+          <h3>Yazılım</h3>
+          <p>Web, mobil ve backend geliştiricileri ile projelerinizi hayata geçirin.</p>
+        </article>
+        <article class="card">
+          <h3>İçerik</h3>
+          <p>Metin yazarlığı, çeviri ve SEO odaklı içerikler.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="freelancers" class="container freelancers">
+      <h2>Öne Çıkan Freelancer'lar</h2>
+      <div class="grid cards">
+        <div class="profile card">
+          <div class="avatar">AS</div>
+          <div>
+            <h3>Ahmet S.</h3>
+            <p>Frontend geliştirici — React, Vue</p>
+          </div>
+        </div>
+        <div class="profile card">
+          <div class="avatar">MY</div>
+          <div>
+            <h3>Melis Y.</h3>
+            <p>UI/UX tasarımcı</p>
+          </div>
+        </div>
+        <div class="profile card">
+          <div class="avatar">EK</div>
+          <div>
+            <h3>Emir K.</h3>
+            <p>Backend geliştirici — Node.js</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="container">
+      <h2>Son Projeler</h2>
+      <div class="grid projects" id="projects-list">
+        <!-- projects loaded dynamically -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Freela — Tüm hakları saklıdır.</p>
+    </div>
+  </footer>
+
+  <!-- Modals -->
+  <div id="modal-root">
+    <div id="login-modal" class="modal" style="display:none">
+      <div class="panel">
+        <h3>Giriş</h3>
+        <div class="form-row"><label>E-posta</label><input id="login-email" type="email"></div>
+        <div class="form-row"><label>Şifre</label><input id="login-password" type="password"></div>
+        <div style="display:flex;gap:.5rem;justify-content:flex-end"><button class="btn" id="login-cancel">İptal</button><button class="btn primary" id="login-submit">Giriş</button></div>
+      </div>
+    </div>
+
+    <div id="register-modal" class="modal" style="display:none">
+      <div class="panel">
+        <h3>Kayıt</h3>
+        <div class="form-row"><label>İsim</label><input id="reg-name" type="text"></div>
+        <div class="form-row"><label>E-posta</label><input id="reg-email" type="email"></div>
+        <div class="form-row"><label>Şifre</label><input id="reg-password" type="password"></div>
+        <div style="display:flex;gap:.5rem;justify-content:flex-end"><button class="btn" id="reg-cancel">İptal</button><button class="btn primary" id="reg-submit">Kayıt</button></div>
+      </div>
+    </div>
+
+    <div id="create-modal" class="modal" style="display:none">
+      <div class="panel">
+        <h3>Yeni Proje Paylaş</h3>
+        <div class="form-row"><label>Başlık</label><input id="proj-title" type="text"></div>
+        <div class="form-row"><label>Açıklama</label><textarea id="proj-desc" rows="4"></textarea></div>
+        <div style="display:flex;gap:.5rem;justify-content:flex-end"><button class="btn" id="proj-cancel">İptal</button><button class="btn primary" id="proj-submit">Paylaş</button></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
