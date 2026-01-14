@@ -89,6 +89,76 @@ document.addEventListener('DOMContentLoaded', function () {
     `).join('');
   }
 
+  // Simple hash router with quick animation
+  const appRoot = document.getElementById('app');
+  function showView(html){
+    const old = appRoot.querySelector('.current-view');
+    const wrapper = document.createElement('div');
+    wrapper.className = 'current-view page-enter';
+    wrapper.innerHTML = html;
+    appRoot.appendChild(wrapper);
+    requestAnimationFrame(()=> wrapper.classList.remove('page-enter'));
+    if(old){
+      old.classList.add('page-exit');
+      setTimeout(()=> old.remove(), 280);
+    }
+  }
+
+  async function renderRoute(){
+    const hash = location.hash || '#/';
+    if(hash.startsWith('#/project/')){
+      const id = hash.split('/')[2];
+      showView('<div class="muted">Yükleniyor...</div>');
+      const p = await api(`/projects/${id}`);
+      if(p.error){ showView(`<div class="muted">${p.error}</div>`); return; }
+      const html = `
+        <div class="card">
+          <h2>${escapeHtml(p.title)}</h2>
+          <div class="muted">Paylaşan: ${escapeHtml(p.owner_name||'')}</div>
+          <p>${escapeHtml(p.description||'')}</p>
+        </div>
+      `;
+      showView(html);
+      return;
+    }
+
+    if(hash === '#/dashboard'){
+      showView('<div class="muted">Yükleniyor...</div>');
+      const me = await api('/me');
+      if(!me || !me.id) { showView('<div class="muted">Giriş yapmalısınız</div>'); return; }
+      const rows = await api('/my/projects');
+      const list = (Array.isArray(rows) && rows.length) ? rows.map(r=>`<div class="card"><h4>${escapeHtml(r.title)}</h4><p>${escapeHtml(r.description||'')}</p></div>`).join('') : '<div class="muted">Henüz proje yok</div>';
+      showView(`<h2>Hoşgeldin ${escapeHtml(me.name)}</h2>${list}`);
+      return;
+    }
+
+    // default -> projects list view
+    if(hash === '#/' || hash === '#/home' || hash === '#/projects' || hash === ''){
+      // reuse existing projects list DOM
+      const content = document.getElementById('projects');
+      if(content){
+        showView(content.outerHTML);
+        loadProjects();
+        // attach project links
+        setTimeout(()=>{
+          const projectCards = document.querySelectorAll('.project.card');
+          projectCards.forEach((c,i)=>{
+            c.style.cursor='pointer';
+            c.addEventListener('click', ()=>{ location.hash = '#/project/' + (i+1); });
+          });
+        },350);
+        return;
+      }
+    }
+
+    // fallback: show home sections
+    const home = document.querySelector('[data-view="home"]');
+    if(home) showView(home.outerHTML);
+  }
+
+  window.addEventListener('hashchange', renderRoute);
+  renderRoute();
+
   function escapeHtml(s){ return String(s||'').replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":"&#39;"})[c]); }
 
   loadProjects();

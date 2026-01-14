@@ -60,6 +60,12 @@ body{font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);margin
 .nav-toggle{transition:transform var(--motion) ease}
 .nav-toggle.open{transform:rotate(90deg) scale(1.03)}
 
+/* page enter/exit animations */
+.current-view{position:relative}
+.page-enter{transform:translateY(6px);opacity:0;transition:transform var(--motion) ease,opacity var(--motion) ease}
+.page-enter:not(.page-enter){transform:none;opacity:1}
+.page-exit{transform:translateY(-8px);opacity:0;transition:transform var(--motion) ease,opacity var(--motion) ease}
+
 .site-footer{padding:1.5rem 0;background:var(--grey-100);border-top:1px solid var(--grey-300);margin-top:2rem}
 
 @media (max-width:800px){

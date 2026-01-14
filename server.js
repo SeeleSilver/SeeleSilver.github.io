@@ -89,6 +89,20 @@ app.get('/api/projects', (req,res)=>{
   res.json(rows);
 });
 
+app.get('/api/projects/:id', (req,res)=>{
+  const id = Number(req.params.id);
+  if(!id) return res.status(400).json({error:'Geçersiz id'});
+  const row = db.prepare('SELECT p.*, u.name as owner_name FROM projects p LEFT JOIN users u ON p.owner_id=u.id WHERE p.id = ?').get(id);
+  if(!row) return res.status(404).json({error:'Proje bulunamadı'});
+  res.json(row);
+});
+
+app.get('/api/projects/:id/proposals', (req,res)=>{
+  const id = Number(req.params.id);
+  const rows = db.prepare('SELECT pr.*, u.name as user_name FROM proposals pr LEFT JOIN users u ON pr.user_id=u.id WHERE pr.project_id = ? ORDER BY pr.created_at DESC').all(id);
+  res.json(rows);
+});
+
 app.post('/api/projects', authMiddleware, (req,res)=>{
   const {title, description} = req.body;
   if(!title) return res.status(400).json({error:'Başlık gerekli'});
@@ -110,6 +124,24 @@ app.post('/api/projects/:id/proposals', authMiddleware, (req,res)=>{
 
 app.get('/api/freelancers', (req,res)=>{
   const rows = db.prepare('SELECT id,name,email FROM users ORDER BY name LIMIT 20').all();
+  res.json(rows);
+});
+
+app.get('/api/users/:id', (req,res)=>{
+  const id = Number(req.params.id);
+  if(!id) return res.status(400).json({error:'Geçersiz id'});
+  const row = db.prepare('SELECT id,name,email FROM users WHERE id = ?').get(id);
+  if(!row) return res.status(404).json({error:'Kullanıcı bulunamadı'});
+  res.json(row);
+});
+
+app.get('/api/me', authMiddleware, (req,res)=>{
+  const row = db.prepare('SELECT id,name,email FROM users WHERE id = ?').get(req.user.id);
+  res.json(row || {});
+});
+
+app.get('/api/my/projects', authMiddleware, (req,res)=>{
+  const rows = db.prepare('SELECT * FROM projects WHERE owner_id = ? ORDER BY created_at DESC').all(req.user.id);
   res.json(rows);
 });
 

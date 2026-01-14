@@ -26,8 +26,8 @@
     </div>
   </header>
 
-  <main>
-    <section class="hero">
+  <main id="app">
+    <section class="hero view" data-view="home">
       <div class="container">
         <h1>Freelancerlarla hızlı ve güvenli çalışın</h1>
         <p>Projelerinizi yayınlayın, teklif alın ve en uygun freelancer'ı bulun.</p>
@@ -38,7 +38,7 @@
       </div>
     </section>
 
-    <section id="services" class="services container">
+    <section id="services" class="services container view" data-view="services">
       <h2>Popüler Kategoriler</h2>
       <div class="grid cards">
         <article class="card">
@@ -56,7 +56,7 @@
       </div>
     </section>
 
-    <section id="freelancers" class="container freelancers">
+    <section id="freelancers" class="container freelancers view" data-view="freelancers">
       <h2>Öne Çıkan Freelancer'lar</h2>
       <div class="grid cards">
         <div class="profile card">
@@ -83,7 +83,7 @@
       </div>
     </section>
 
-    <section id="projects" class="container">
+    <section id="projects" class="container view" data-view="projects">
       <h2>Son Projeler</h2>
       <div class="grid projects" id="projects-list">
         <!-- projects loaded dynamically -->
