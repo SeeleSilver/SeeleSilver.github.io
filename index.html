@@ -18,8 +18,16 @@
         </ul>
       </nav>
       <div class="header-actions">
-        <button class="btn" id="btn-login">Giriş</button>
-        <button class="btn" id="btn-register">Kayıt</button>
+        <div id="user-menu" style="display:none;align-items:center;gap:.5rem">
+          <span id="user-name" class="muted"></span>
+          <button class="btn" id="btn-dashboard">Panel</button>
+          <button class="btn" id="btn-users" style="display:none">Kullanıcılar</button>
+          <button class="btn" id="btn-logout">Çıkış</button>
+        </div>
+        <div id="auth-actions" style="display:flex;gap:.5rem;align-items:center">
+          <button class="btn" id="btn-login">Giriş</button>
+          <button class="btn" id="btn-register">Kayıt</button>
+        </div>
         <button class="btn primary" id="btn-create-project">Proje Paylaş</button>
       </div>
       <button class="nav-toggle" id="nav-toggle" aria-expanded="false">☰</button>

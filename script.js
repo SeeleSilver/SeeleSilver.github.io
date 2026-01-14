@@ -25,16 +25,66 @@ document.addEventListener('DOMContentLoaded', function () {
   // Open modals
   btnLogin && btnLogin.addEventListener('click', () => show(loginModal));
   btnRegister && btnRegister.addEventListener('click', () => show(registerModal));
-  btnCreate && btnCreate.addEventListener('click', () => show(createModal));
 
   // Cancel buttons
   document.getElementById('login-cancel').addEventListener('click', () => hide(loginModal));
   document.getElementById('reg-cancel').addEventListener('click', () => hide(registerModal));
   document.getElementById('proj-cancel').addEventListener('click', () => hide(createModal));
 
+  // Protect create: require login
+  if(btnCreate) btnCreate.addEventListener('click', async () => {
+    const me = await loadAuthState();
+    if(!me){ show(loginModal); return; }
+    show(createModal);
+  });
+
   // Auth helpers
   function setToken(t) { localStorage.setItem('token', t); }
   function getToken() { return localStorage.getItem('token'); }
+
+  // Auth state UI
+  async function loadAuthState(){
+    const token = getToken();
+    const userMenu = document.getElementById('user-menu');
+    const authActions = document.getElementById('auth-actions');
+    const userName = document.getElementById('user-name');
+    if(!token){
+      if(userMenu) userMenu.style.display = 'none';
+      if(authActions) authActions.style.display = 'flex';
+      return null;
+    }
+    const me = await api('/me');
+    if(me && me.id){
+      if(userMenu){ userMenu.style.display = 'flex'; }
+      if(authActions){ authActions.style.display = 'none'; }
+      if(userName) userName.textContent = me.name || me.email || 'Kullanıcı';
+      // show admin actions if user is admin
+      const btnUsers = document.getElementById('btn-users');
+      if(btnUsers) btnUsers.style.display = (me.is_admin ? 'inline-block' : 'none');
+      return me;
+    }else{
+      localStorage.removeItem('token');
+      if(userMenu) userMenu.style.display = 'none';
+      if(authActions) authActions.style.display = 'flex';
+      return null;
+    }
+  }
+
+  // Logout
+  const btnLogout = document.getElementById('btn-logout');
+  if(btnLogout) btnLogout.addEventListener('click', ()=>{
+    localStorage.removeItem('token');
+    loadAuthState();
+    location.hash = '#/';
+  });
+
+  // Dashboard button
+  const btnDashboard = document.getElementById('btn-dashboard');
+  if(btnDashboard) btnDashboard.addEventListener('click', ()=> location.hash = '#/dashboard');
+
+  // Admin users button
+  const btnUsers = document.getElementById('btn-users');
+  if(btnUsers) btnUsers.addEventListener('click', ()=> location.hash = '#/users');
 
   async function api(path, opts = {}) {
     opts.headers = opts.headers || {};
@@ -51,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const email = document.getElementById('reg-email').value.trim();
     const password = document.getElementById('reg-password').value;
     const res = await api('/register', { method: 'POST', body: JSON.stringify({ name, email, password }) });
-    if (res.token) { setToken(res.token); hide(registerModal); loadProjects(); }
+    if (res.token) { setToken(res.token); hide(registerModal); await loadAuthState(); loadProjects(); }
     else alert(res.error || 'Kayıt başarısız');
   });
 
@@ -60,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const email = document.getElementById('login-email').value.trim();
     const password = document.getElementById('login-password').value;
     const res = await api('/login', { method: 'POST', body: JSON.stringify({ email, password }) });
-    if (res.token) { setToken(res.token); hide(loginModal); loadProjects(); }
+    if (res.token) { setToken(res.token); hide(loginModal); await loadAuthState(); loadProjects(); }
     else alert(res.error || 'Giriş başarısız');
   });
 
@@ -122,6 +172,25 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
 
+    if(hash === '#/users'){
+      showView('<div class="muted">Yükleniyor...</div>');
+      const rows = await api('/users');
+      if(rows.error){ showView(`<div class="muted">${rows.error}</div>`); return; }
+      const html = `
+        <div class="card">
+          <h2>Kayıtlı Kullanıcılar</h2>
+          <table style="width:100%;border-collapse:collapse">
+            <thead><tr><th style="text-align:left;padding:.5rem">ID</th><th style="text-align:left;padding:.5rem">İsim</th><th style="text-align:left;padding:.5rem">E-posta</th><th style="text-align:left;padding:.5rem">Admin</th></tr></thead>
+            <tbody>
+              ${rows.map(u=>`<tr><td style="padding:.5rem">${u.id}</td><td style="padding:.5rem">${escapeHtml(u.name)}</td><td style="padding:.5rem">${escapeHtml(u.email)}</td><td style="padding:.5rem">${u.is_admin? 'Evet':'Hayır'}</td></tr>`).join('')}
+            </tbody>
+          </table>
+        </div>
+      `;
+      showView(html);
+      return;
+    }
+
     if(hash === '#/dashboard'){
       showView('<div class="muted">Yükleniyor...</div>');
       const me = await api('/me');
@@ -161,6 +230,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function escapeHtml(s){ return String(s||'').replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":"&#39;"})[c]); }
 
-  loadProjects();
+  // initialize
+  loadAuthState().then(() => loadProjects());
 
 });
